@@ -2,16 +2,18 @@
 # Use postgres/example user/password credentials
 version: '3.1'
 services:
-  server:
+  api:
     image: postgrest/postgrest
     ports:
       - "3000:3000"
     links:
       - db:db
+    depends_on:
+      - db
     environment:
-      PGRST_DB_URI: postgres://app_user:password@db:5432/app_db
+      PGRST_DB_URI: postgres://root:password@db:5432/app_db
       PGRST_DB_SCHEMA: api
-      PGRST_DB_ANON_ROLE: anon_user
+      PGRST_DB_ANON_ROLE: web_anon
 
   db:
     image: postgres
@@ -19,16 +21,18 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_DB: app_db
-      POSTGRES_USER: app_user
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: password
     volumes:
-          - ./:/myscript
+      - ./sql:/docker-entrypoint-initdb.d
+    restart: always
+
 
   swaggergui:
     image: swaggerapi/swagger-ui
     ports:
       - "8080:8080"
     links:
-      - server:server
+      - api:api
     environment:
       API_URL: http://localhost:3000

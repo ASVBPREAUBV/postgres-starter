@@ -21,7 +21,7 @@ docker, docker-compose installed
 4. Run init skript init_db.sql in db
     
     `
-    docker exec -it postgreststarter_db_1  psql -U app_user -W app_db -a -f /myscript/init_db.sql
+    docker exec -it postgrest-starter_db_1  psql -U app_user -W app_db -a -f /myscript/init_db.sql
     `
 5. Services should run
 
@@ -32,3 +32,8 @@ docker, docker-compose installed
     `
     
     
+## Run sql script in docker-container
+
+```
+docker exec -it postgrest-starter_db_1  psql -U root -W app_db
+```
