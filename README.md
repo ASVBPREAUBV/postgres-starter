@@ -1,6 +1,6 @@
-# Postgrest Starter Kit
+# Postgrest Simple Example
 
-## Prerequesies
+## Prerequisites
 
 docker, docker-compose installed
 
@@ -18,21 +18,17 @@ docker, docker-compose installed
     `
     docker-compose up
     `
-4. Run init skript init_db.sql in db
-    
-    `
-    docker exec -it postgrest-starter_db_1  psql -U app_user -W app_db -a -f /myscript/init_db.sql
-    `
-5. Services should run
+4. Services should run
 
     `
-    http://localhost:8080/ should run swagger-gui with todo endpoint
+    http://localhost:8080/ should run swagger-gui
     http://localhost:3000/ should run api
-    localhost:5432 should run postgres
+    http://localhost:5432/ should run postgres
     `
     
     
 ## Run sql script in docker-container
+You can connect to postgres to work in the psql console
 
 ```
 docker exec -it postgrest-starter_db_1  psql -U root -W app_db
