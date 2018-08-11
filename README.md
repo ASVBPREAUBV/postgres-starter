@@ -33,3 +33,11 @@ You can connect to postgres to work in the psql console
 ```
 docker exec -it postgrest-starter_db_1  psql -U root -W app_db
 ```
+
+## Development
+
+While testing i found it to be more reliable to delete all containers every time i run docker-compose again.
+
+```
+bash scripts/reset-containers.sh
+```
