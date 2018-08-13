@@ -38,3 +38,9 @@ While testing i found it to be more reliable to delete all containers every time
 ```
 bash scripts/reset-containers.sh
 ```
+
+## Todo
+
+ - [x] Add Init-SQL Script
+ - [ ] Add Admin with Password set in ENV
+ - [ ] Add User-Model
