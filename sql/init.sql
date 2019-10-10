@@ -3,11 +3,18 @@
 create schema api;
 
 /* creates a table*/
-create table api.todos (
-  id serial primary key,
-  done boolean not null default false,
-  task text not null
-);
+Table "todos" {
+  "id" int [pk, increment]
+  "done" boolean [not null, default: false]
+  "task" text [not null]
+}
+
+Table "bla" {
+  "id" int [pk, increment]
+  "done" boolean [not null, default: false]
+  "task" text [not null]
+}
+
 
 /*inserts sample in db*/
 insert into api.todos (task) values

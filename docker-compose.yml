@@ -10,11 +10,11 @@ services:
       - db:db
     depends_on:
       - db
-    #environment:
-     # PGRST_DB_URI: postgres://root:password@db:5432/app_db
-      #PGRST_DB_SCHEMA: api
-      #PGRST_DB_ANON_ROLE: web_anon
-      #jwt-secret: 893984704959457528353066668294494441189931522775276855334802
+    environment:
+      PGRST_DB_URI: postgres://root:password@db:5432/app_db
+      PGRST_DB_SCHEMA: api
+      PGRST_DB_ANON_ROLE: web_anon
+      jwt-secret: 893984704959457528353066668294494441189931522775276855334802
 
   db:
     image: postgres
